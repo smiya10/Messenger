@@ -1,5 +1,7 @@
 package messenger;
-
+/*@author Andrew Zheng, Syd Miyasaki
+ * 
+ */
 public class MsgUser implements Comparable<MsgUser>{
 	String userName, userPassword;
 	Server userServer;
