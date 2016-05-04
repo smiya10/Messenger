@@ -32,7 +32,7 @@ public class Server {
 		if(name.length() < 4 || name.length() > 10){
 			return -1;
 		}
-		else if(password.length() < 2 || name.length() > 10){
+		else if(password.length() < 2 || password.length() > 10){
 			return -2;
 		}
 		else if(nameToUser.containsKey(name)){
