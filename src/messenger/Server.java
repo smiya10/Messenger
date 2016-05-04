@@ -60,16 +60,18 @@ public class Server {
 	public int login(String name, String password){ 
 		if(!nameToUser.containsKey(name)){
 			return -1;
-		}else if(nameToUser.get(name).getPassword() != password){
+		}else if(!nameToUser.get(name).getPassword().equals(password)){
 			return -2;
-		}else if(users.contains(name)){
+		}else if(users.contains(nameToString.get(name))){
 			return -3;
 		}else{
 			MsgUser user = new MsgUser(this, name, password);
 			for (MsgUser u:users){
 				u.addBuddy(user);
-				u.openDialog(users);
+				users.addBuddy(u)
 			}
+			user.openDialog
+			users.add(user);
 		}
 	}
 	    
@@ -77,5 +79,10 @@ public class Server {
 	  Removes a given user from the set of logged-in users and from the ‘buddy lists’ of 
 	   all other logged-in users.  
 	*/
-	public void logout(MsgUser u){  }
+	public void logout(MsgUser u){ 
+		users.remove(u);
+		for(MsgUser user:users){
+			user.removeBuddy(u);
+		}
+	}
 }
